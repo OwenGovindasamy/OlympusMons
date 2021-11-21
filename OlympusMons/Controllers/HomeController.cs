@@ -1,16 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OlympusMons.Logic;
 using OlympusMons.Models;
+using OlympusMons.Interfaces;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OlympusMons.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IDbModule _dbModule;
+        public HomeController(ILogger<HomeController> logger, IDbModule dbModule)
         {
             _logger = logger;
+            _dbModule = dbModule;
         }
 
         public IActionResult Index()
@@ -21,6 +26,12 @@ namespace OlympusMons.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult InsertTest(Test test)
+        {
+            return Ok(_dbModule.insertTest(test));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

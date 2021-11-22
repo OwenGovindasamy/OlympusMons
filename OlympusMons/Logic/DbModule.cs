@@ -1,13 +1,17 @@
-﻿using OlympusMons.Interfaces;
+﻿using AutoMapper;
+using OlympusMons.Interfaces;
 using OlympusMons.Models;
+using OlympusMons.ViewModels;
 
 namespace OlympusMons.Logic
 {
     public class DbModule : IDbModule
     {
         private readonly ApplicationDbContext _context;
-        public DbModule(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public DbModule(ApplicationDbContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
         public bool insertTest(Test test)
@@ -17,7 +21,6 @@ namespace OlympusMons.Logic
             try
             {
                 _context.Test?.Add(test);
-
                 _context.SaveChanges();
 
                 return true;
@@ -28,5 +31,16 @@ namespace OlympusMons.Logic
                 return false;
             }
         }
+
+        //public bool EditTest(int id)
+        //{
+        //    var DbRecord = _context.Test?.Find(id);
+
+        //    if (DbRecord == null) return false;
+
+        //    var model = _mapper.Map<TestVM>(DbRecord);
+
+        //    return 
+        //}
     }
 }

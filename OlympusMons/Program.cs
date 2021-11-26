@@ -16,7 +16,13 @@ var mapperConfig = new MapperConfiguration(mc =>
 
 // Ideally OlympusMonsContext... should be in its own Identity Framework DB
 builder.Services.AddDbContext<OlympusMonsContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<OlympusMonsContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false; 
+    options.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<OlympusMonsContext>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 // AutoMapper config
 IMapper mapper = mapperConfig.CreateMapper();

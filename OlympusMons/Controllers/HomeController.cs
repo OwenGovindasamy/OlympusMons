@@ -26,6 +26,11 @@ namespace OlympusMons.Controllers
         public IActionResult Privacy()
         {
             return View();
+        } 
+
+        public IActionResult Test()
+        {
+            return View();
         }
 
         [HttpPost]

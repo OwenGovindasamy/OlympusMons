@@ -16,7 +16,7 @@ var mapperConfig = new MapperConfiguration(mc =>
 
 // Ideally OlympusMonsContext... should be in its own Identity Framework DB
 builder.Services.AddDbContext<OlympusMonsContext>(options => options.UseSqlServer(connectionString));
-
+//configure identity framework and allow weaker passwords
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireUppercase = false;
@@ -55,6 +55,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-
-//FORGET IDENTITY FOR NOW....

@@ -5,6 +5,8 @@
     ViewData["Title"] = "Log in";
 }
 
+<partial name="~/Views/Shared/SkeletonLoad/_loginSkeleton.cshtml" />
+
 <h1>@ViewData["Title"]</h1>
 <div class="row">
     <div class="col-md-4">
@@ -82,4 +84,7 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        setTimeout(function(){ $('.skeletonContainer').hide(); }, 2000);
+    </script>
 }

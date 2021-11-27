@@ -160,3 +160,10 @@ body {
 .b-btn i {
     color: #ff9800;
 }
+.skeletonContainer {
+    background-color: white;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+}

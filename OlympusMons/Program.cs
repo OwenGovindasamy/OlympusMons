@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using OlympusMons.Data;
 using AutoMapper;
 using OlympusMons.Mappings;
+using OlympusMons.Logic.HelperMethods;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -16,7 +17,7 @@ var mapperConfig = new MapperConfiguration(mc =>
 
 // Ideally OlympusMonsContext... should be in its own Identity Framework DB
 builder.Services.AddDbContext<OlympusMonsContext>(options => options.UseSqlServer(connectionString));
-
+// Configure identity framework and allow weaker passwords
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequireUppercase = false;
@@ -34,6 +35,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 // Injecting interfaces
 builder.Services.AddScoped<IDbModule, DbModule>();
+builder.Services.AddScoped<IWeatherApiModule, WeatherApiModule>();
+builder.Services.AddScoped<IHelpers, Helpers>();
 
 var app = builder.Build();
 
@@ -55,6 +58,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-
-//FORGET IDENTITY FOR NOW....

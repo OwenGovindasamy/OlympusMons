@@ -10,13 +10,17 @@ namespace OlympusMons.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        #region Dependency Injection
         private readonly ILogger<HomeController> _logger;
         private readonly IDbModule _dbModule;
-        public HomeController(ILogger<HomeController> logger, IDbModule dbModule)
+        private readonly IWeatherApiModule _weatherApiModule;
+        public HomeController(ILogger<HomeController> logger, IDbModule dbModule, IWeatherApiModule weatherApiModule)
         {
             _logger = logger;
             _dbModule = dbModule;
+            _weatherApiModule = weatherApiModule;
         }
+        #endregion Dependency Injection
 
         public IActionResult Index()
         {
@@ -26,7 +30,7 @@ namespace OlympusMons.Controllers
         public IActionResult Privacy()
         {
             return View();
-        } 
+        }
 
         public IActionResult Test()
         {
@@ -37,6 +41,12 @@ namespace OlympusMons.Controllers
         public IActionResult InsertTest(Test test)
         {
             return Ok(_dbModule.insertTest(test));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetWeatherReport()
+        {
+            return Ok( await _weatherApiModule.GetWeatherForecastAsync("Durban", "ZA"));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

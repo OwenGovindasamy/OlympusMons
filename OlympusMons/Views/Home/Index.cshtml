@@ -3,18 +3,21 @@
 }
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" asp-append-version="true" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.css" asp-append-version="true" />
+
+@model  OlympusMons.Models.WeatherReport
+
 <div class="page page-home" style="display:block">
   <div class="bg"></div>
   <div class="overlay"></div>
   <div class="panel panel-time">
-    <div class="span time">15:06</div>
-    <div class="span date">Monday, 27 Juny 2015</div>
+    <div class="span time">@Model?.timezone</div>
+    <div class="span date">@Model?.dt</div>
   </div>
   <div class="panel panel-weather">
-    <div class="location">Budapest, Hungary</div>
-    <!--.icon.wi.wi-day-sunny-overcast--><img src="http://ultraimg.com/images/KlfpUAu.png"/>
-    <div class="span temp">28<span class="degree">&deg;C</span></div>
-    <div class="span text">Sunny</div>
+    <div class="location">@Model?.name @Model?.sys?.country</div>
+    <img src="http://ultraimg.com/images/KlfpUAu.png"/>
+    <div class="span temp">@Model?.main?.temp<span class="degree">&deg;F</span></div>
+    <div class="span text">@Model?.weather?[0].description</div>
   </div>
   <div class="panel panel-calendar">
     <ul>
@@ -466,5 +469,3 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMRGe3tisQkblfDg8yJ-OwSCDV_2uRq2U"></script>
 <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/102308/ScrollToPlugin.js"></script>
-<script src=""></script>
-<script src=""></script>

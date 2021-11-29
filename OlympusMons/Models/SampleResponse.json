@@ -1,0 +1,45 @@
+//test(
+{
+  "coord": {
+    "lon": 31.0292,
+    "lat": -29.8579
+  },
+  "weather": [
+    {
+      "id": 500,
+      "main": "Rain",
+      "description": "light rain",
+      "icon": "10n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 73.99,
+    "feelslike": 75.24,
+    "tempmin": 72.52,
+    "temp_max": 74.01,
+    "pressure": 1015,
+    "humidity": 88
+  },
+  "visibility": 8930,
+  "wind": {
+    "speed": 1.99,
+    "deg": 347,
+    "gust": 4
+  },
+  "rain": { "1h": 0.42 },
+  "clouds": { "all": 6 },
+  "dt": 1638217119,
+  "sys": {
+    "type": 2,
+    "id": 2001517,
+    "country": "ZA",
+    "sunrise": 1638154074,
+    "sunset": 1638204053
+  },
+  "timezone": 7200,
+  "id": 1007311,
+  "name": "Durban",
+  "cod": 200
+}
+//)

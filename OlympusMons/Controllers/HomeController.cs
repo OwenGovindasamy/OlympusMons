@@ -22,9 +22,9 @@ namespace OlympusMons.Controllers
         }
         #endregion Dependency Injection
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _weatherApiModule.GetWeatherForecastAsync("Durban", "ZA"));
         }
 
         public IActionResult Privacy()

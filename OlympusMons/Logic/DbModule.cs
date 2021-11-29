@@ -5,6 +5,7 @@ using OlympusMons.ViewModels;
 
 namespace OlympusMons.Logic
 {
+    //TODO: cleanup
     public class DbModule : IDbModule
     {
         private readonly ApplicationDbContext _context;

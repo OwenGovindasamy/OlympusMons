@@ -14,9 +14,9 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OlympusMons</a>
+                <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">OlympusMons</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
                         <li class="nav-item">
-                            <a class="nav-link nav-link-icon me-2" asp-area="" asp-controller="Home" asp-action="Test">Test</a>
+                            <a class="nav-link nav-link-icon me-2 text-white" asp-area="" asp-controller="Home" asp-action="Test">Test</a>
                         </li>
                     </ul>
                 </div>
@@ -48,12 +48,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMRGe3tisQkblfDg8yJ-OwSCDV_2uRq2U"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/102308/ScrollToPlugin.js"></script>
 
-    <script src="~/js/Index.js" asp-append-version="true"></script>
+
+   
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

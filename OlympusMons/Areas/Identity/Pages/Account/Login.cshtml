@@ -49,10 +49,7 @@
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
 
-					Don't have an account?  <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
-				</div>
-				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					Don't have an account? <br /> <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
 				</div>
 			</div>
 		</div>
@@ -61,8 +58,12 @@
 
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-    <script>
-        setTimeout(function(){ $('.skeletonContainer').hide(); }, 2000);
-    </script>
+<script src="~/lib/weatherUI/TweenMax.min.js"></script>
+<script src="~/lib/weatherUI/hammer.min.js"></script>
+<script src="~/lib/weatherUI/ScrollToPlugin.js"></script>
+<script src="~/js/Index.js" asp-append-version="true"></script>
+<partial name="_ValidationScriptsPartial" />
+<script>
+    setTimeout(function(){ $('.skeletonContainer').hide(); }, 2000);
+</script>
 }

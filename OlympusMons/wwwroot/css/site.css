@@ -28,6 +28,7 @@ html, body {
     background-repeat: no-repeat;
     height: 100%;
     font-family: 'Numans', sans-serif;
+    color: white;
 }
 
 .container {
@@ -65,7 +66,8 @@ html, body {
 }
 
 .input-group-prepend span {
-    width: 50px;
+    width: 40px;
+    height: 38px;
     background-color: #FFC312;
     color: black;
     border: 0 !important;

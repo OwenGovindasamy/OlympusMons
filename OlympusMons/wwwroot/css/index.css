@@ -30,7 +30,7 @@ body {
     width: 800px;
     height: 480px;
     margin: auto auto;
-    background: Black;
+    background: rgb(0 0 0 / 79%);
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -71,7 +71,7 @@ body {
         width: 800px;
         height: 480px;
         margin: auto auto;
-        background-color: rgba(0, 233, 233, 0.1);
+        background-color: rgb(255 255 255 / 10%);
     }
 
 .panel {
@@ -106,7 +106,7 @@ body {
 
 .page-home .panel-weather {
     position: absolute;
-    top: 30px;
+    top: 32px;
     width: 380px;
     right: 0px;
     text-align: center;
@@ -189,7 +189,7 @@ body {
             }
 
             .page-home .panel-calendar ul li .time {
-                width: 120px;
+                width: 121px;
                 text-align: center;
                 font-weight: 300;
                 background-color: rgba(0, 233, 233, 0.6);
@@ -208,7 +208,9 @@ body {
     cursor: pointer;
     background-color: initial;
 }
-
+     ul {
+        list-style: none;
+    }
     .page-home .panel-tasks ul {
         padding-right: 30px;
     }
@@ -280,7 +282,7 @@ body {
         font-size: 45px;
         width: 87px;
         height: 87px;
-        padding: 1px;
+        padding: 6px;
         text-align: center;
         cursor: pointer;
         border: 6px solid rgba(0, 233, 233, 0.6);

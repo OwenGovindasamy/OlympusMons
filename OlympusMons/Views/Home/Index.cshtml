@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css" asp-append-version="true" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.css" asp-append-version="true" />
 
 @model  OlympusMons.Models.WeatherReport
 
@@ -15,7 +13,6 @@
   </div>
   <div class="panel panel-weather">
     <div class="location">@Model?.name @Model?.sys?.country</div>
-    <img src="http://ultraimg.com/images/KlfpUAu.png"/>
     <div class="span temp">@Model?.main?.temp<span class="degree">&deg;F</span></div>
     <div class="span text">@Model?.weather?[0].description</div>
   </div>
@@ -68,7 +65,7 @@
   <div class="overlay"></div>
   <div class="panel panel-now">
     <div class="mainInfo">
-      <!--.icon.wi.wi-day-sunny--><img src="http://ultraimg.com/images/KlfpUAu.png"/>
+      @*<!--.icon.wi.wi-day-sunny-->*@
       <div class="temp"><span class="value">27<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">19<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="row">
@@ -80,17 +77,17 @@
   <div class="panel panel-today">
     <div class="box">
       <div class="title">Morning</div>
-      <!--.icon.wi.wi-day-rain--><img src="http://ultraimg.com/images/Paf07R1.png"/>
+      @*<!--.icon.wi.wi-day-rain-->*@
       <div class="temp"><span class="value">16<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
       <div class="title">Afternoon</div>
-      <!--.icon.wi.wi-day-rain--><img src="http://ultraimg.com/images/KlfpUAu.png"/>
+      @*<!--.icon.wi.wi-day-rain-->*@
       <div class="temp"><span class="value">26<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
       <div class="title">Tonight</div>
-      <!--.icon.wi.wi-day-rain--><img src="http://ultraimg.com/images/NDKiHOg.png"/>
+      @*<!--.icon.wi.wi-day-rain-->*@
       <div class="temp"><span class="value">19<span class="degree">&deg;C</span></span></div>
     </div>
   </div>
@@ -101,27 +98,27 @@
   <div class="panel panel-forecast">
     <div class="box">
       <div class="title">Tue</div>
-      <!--.icon.wi.wi-day-rain--><img src="http://ultraimg.com/images/bosikG0.png"/>
+      @*<!--.icon.wi.wi-day-rain--><img src="http://ultraimg.com/images/bosikG0.png"/>*@
       <div class="temp"><span class="value">31<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">23<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
-      <div class="title">Wed</div><img src="http://ultraimg.com/images/KlfpUAu.png"/>
+      @*<div class="title">Wed</div><img src="http://ultraimg.com/images/KlfpUAu.png"/>*@
       <div class="temp"><span class="value">25<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">20<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
-      <div class="title">Thu</div><img src="http://ultraimg.com/images/t8VL5lw.png"/>
+      @*<div class="title">Thu</div><img src="http://ultraimg.com/images/t8VL5lw.png"/>*@
       <div class="temp"><span class="value">18<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">12<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
-      <div class="title">Fri</div><img src="http://ultraimg.com/images/t8VL5lw.png"/>
+      @*<div class="title">Fri</div><img src="http://ultraimg.com/images/t8VL5lw.png"/>*@
       <div class="temp"><span class="value">16<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">9<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
-      <div class="title">Sat</div><img src="http://ultraimg.com/images/Paf07R1.png"/>
+      @*<div class="title">Sat</div><img src="http://ultraimg.com/images/Paf07R1.png"/>*@
       <div class="temp"><span class="value">20<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">13<span class="degree">&deg;C</span></span></div>
     </div>
     <div class="box">
-      <div class="title">Sun</div><img src="http://ultraimg.com/images/bosikG0.png"/>
+      @*<div class="title">Sun</div><img src="http://ultraimg.com/images/bosikG0.png"/>*@
       <div class="temp"><span class="value">26<span class="degree">&deg;C</span></span><span class="separator">/</span><span class="value">22<span class="degree">&deg;C</span></span></div>
     </div>
   </div>
@@ -271,201 +268,4 @@
     </div>
   </div>
 </div>
-<div class="page page-news">
-  <div class="bg"></div>
-  <div class="overlay">
-    <div class="panel panel-newslist-big">
-      <ul>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');">
-            <div class="source">CNET</div>
-            <div class="time">June 26, 2015 7:12 PM</div>
-          </div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-        </li>
-        <li>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');">
-            <div class="source">Forbes</div>
-            <div class="time">June 26, 2015 6:01 PM</div>
-          </div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-        </li>
-      </ul>
-    </div>
-    <div class="panel panel-newslist-small">
-      <ul>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-        <li>
-          <div class="source">CNET</div>
-          <div class="image" style="background-image: url('http://cnet1.cbsistatic.com/hub/i/2012/10/15/1b4b10cd-fdb7-11e2-8c7c-d4ae52e62bcc/4669586ec99fd664fe4862edf2249436/Sonos_Connect_33190898_02_540x386.jpg');"></div>
-          <div class="title">What is FLAC? The high-def MP3 explained</div>
-          <div class="description">CNET explains what FLAC is, as well as where to buy music in the FLAC format, and how to play it on your iPhone, computer, or MP3 player. In the late …</div>
-          <div class="time">June 26, 2015 7:12 PM</div>
-        </li>
-        <li>
-          <div class="source">Forbes</div>
-          <div class="image" style="background-image: url('https://cdn.flipboard.com/forbes.com/a174e8925fbf44563a38c7e763c91ed733f05a60/original.jpg');"></div>
-          <div class="title">Here Are The Phones That Will Fit Your 'Fallout 4' Pip-Boy Edition</div>
-          <div class="description">Imagine this scenario: You recently contributed $119 to a Kickstarter campaign for an upcoming mobile RPG from one of your most respected developers. Good news, the project was successfully funded! Now the developer chooses this point in time to tell you which mobile operating system the game will …</div>
-          <div class="time">June 26, 2015 6:01 PM</div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.4/hammer.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMRGe3tisQkblfDg8yJ-OwSCDV_2uRq2U"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/102308/ScrollToPlugin.js"></script>
+

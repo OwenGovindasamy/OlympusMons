@@ -1,1 +1,55 @@
-﻿<partial name="~/Views/Shared/SkeletonLoad/_loginSkeleton.cshtml" />
+﻿<link rel="stylesheet" href="~/css/WeatherForm.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" asp-append-version="true" />
+
+<main>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-4">
+                <div class="card near-moon-gradient form-white">
+                    <div class="card-body">
+                        <form id="WeatherForm">
+                            <h3 class="text-center indigo-text font-bold py-4"><strong>Where do you live?</strong></h3>
+                            <div class="md-form">
+                                <i class="fa fa-user prefix white-text"></i>
+                                <input type="text" id="form35" class="form-control">
+                                <label for="form35">Your name</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-envelope prefix white-text"></i>
+                                <input type="text" id="form25" class="form-control">
+                                <label for="form25">Your email</label>
+                            </div>
+                            <div class="text-center py-4">
+                                <button class="btn btn-indigo submit">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/js/mdb.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".submit").click(function (e)
+        {
+            e.preventDefault();
+            var $form = $('#WeatherForm');
+            
+            $form.validate();
+
+            if ($form.valid())
+            {
+                console.log($form,'valid');
+            }
+            
+            console.log('form invalid');
+        });
+    });
+</script>

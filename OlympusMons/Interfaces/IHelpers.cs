@@ -1,4 +1,6 @@
-﻿namespace OlympusMons.Interfaces
+﻿using OlympusMons.ViewModels;
+
+namespace OlympusMons.Interfaces
 {
     public interface IHelpers
     {
@@ -7,5 +9,7 @@
         string Getkey();
         string GetkeyLink();
         string GetJsonContent();
+        WeatherQueryPropsVM PopulateWeatherPropsVM_SampleData();
+        string GetRapid_WeatherEndpoint();
     }
 }

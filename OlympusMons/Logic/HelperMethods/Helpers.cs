@@ -4,7 +4,7 @@ using OlympusMons.ViewModels;
 namespace OlympusMons.Logic.HelperMethods
 { // get values from appsetting.json
     public class Helpers : IHelpers
-    {
+    {// values placed in appsetting.json file can be edited on the fly(while the app is deployed to production)
         private readonly IConfiguration _mySettings;
         public Helpers(IConfiguration mySettings)
         {

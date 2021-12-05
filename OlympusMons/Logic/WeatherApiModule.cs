@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using OlympusMons.Interfaces;
 using OlympusMons.Models;
+using OlympusMons.ViewModels;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 
@@ -16,12 +17,12 @@ namespace OlympusMons.Logic
         }
         #endregion Dependency Injection
 
-        public async Task<WeatherReport> GetWeatherForecastAsync(string City, string CountryCode)
+        public async Task<WeatherReport> GetWeatherForecastAsync(WeatherQueryPropsVM Vm)
         {
-            string apiUrl = "https://community-open-weather-map.p.rapidapi.com/weather?q=" + City + "%2C" + CountryCode + "&lat=0&lon=0&callback=test&id=2172797&lang=null&units=imperial&mode=xml";
+            string apiUrl = _helpers.GetRapid_WeatherEndpoint();
 
             using HttpClient client = new();
-
+            client.BaseAddress = new Uri(apiUrl);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_helpers.GetJsonContent()));
 
             client.DefaultRequestHeaders.Add(_helpers.GetHost(), _helpers.GetHostLink());
@@ -31,7 +32,7 @@ namespace OlympusMons.Logic
 
             try
             {
-                response = await client.GetAsync(apiUrl);
+                response = await client.GetAsync(BuildWeatherQueryString(Vm));
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -53,6 +54,11 @@ namespace OlympusMons.Logic
         {// cleaning the Json obj before Deserializing because it comes from rapidapi encapsulated with "test( )" for some reason and this renders the json invalid so it cannot be deserialized
             text = text.Replace("test(", "").Replace(")", "");
             return text;
+        }
+
+        public string BuildWeatherQueryString(WeatherQueryPropsVM Vm)
+        {
+            return string.Format("?q={0}%2C{1}&lat={2}&lon={3}&callback={4}&id={5}&lang={6}&units={7}&mode={8}", Vm.City, Vm.CountryCode, Vm.Latitude, Vm.Longitude, Vm.Callback, Vm.Id, Vm.Language, Vm.Units, Vm.Mode);
         }
     }
 }

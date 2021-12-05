@@ -1,4 +1,5 @@
 ﻿using OlympusMons.Interfaces;
+using OlympusMons.ViewModels;
 
 namespace OlympusMons.Logic.HelperMethods
 { // get values from appsetting.json
@@ -28,6 +29,14 @@ namespace OlympusMons.Logic.HelperMethods
         public string GetJsonContent()
         {
             return _mySettings.GetValue<string>("GeneralConfig:JsonContent");
+        }
+        public WeatherQueryPropsVM PopulateWeatherPropsVM_SampleData()
+        {
+            return new WeatherQueryPropsVM() { Id = 2172797, City = "Durban", CountryCode = "za", Latitude = "0", Longitude = "0", Callback = "test", Language = "null", Units = "metric", Mode = "xml" };
+        }
+        public string GetRapid_WeatherEndpoint()
+        {
+            return _mySettings.GetValue<string>("Endpoints:Rapid_Weather");
         }
     }
 }

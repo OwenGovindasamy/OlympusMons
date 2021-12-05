@@ -4,6 +4,7 @@ using OlympusMons.Models;
 using OlympusMons.Interfaces;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
+using OlympusMons.ViewModels;
 
 namespace OlympusMons.Controllers
 {
@@ -14,17 +15,19 @@ namespace OlympusMons.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IDbModule _dbModule;
         private readonly IWeatherApiModule _weatherApiModule;
-        public HomeController(ILogger<HomeController> logger, IDbModule dbModule, IWeatherApiModule weatherApiModule)
+        private readonly IHelpers _helpers;
+        public HomeController(ILogger<HomeController> logger, IDbModule dbModule, IWeatherApiModule weatherApiModule, IHelpers helpers)
         {
             _logger = logger;
             _dbModule = dbModule;
             _weatherApiModule = weatherApiModule;
+            _helpers = helpers;
         }
         #endregion Dependency Injection
 
         public async Task<IActionResult> Index()
         {
-            return View(await _weatherApiModule.GetWeatherForecastAsync("Durban", "ZA"));
+            return View(await _weatherApiModule.GetWeatherForecastAsync(_helpers.PopulateWeatherPropsVM_SampleData()));
         }
 
         public IActionResult Privacy()
@@ -44,9 +47,9 @@ namespace OlympusMons.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetWeatherReport()
+        public async Task<IActionResult> GetWeatherReport(WeatherQueryPropsVM Vm)
         {
-            return Ok( await _weatherApiModule.GetWeatherForecastAsync("Durban", "ZA"));
+            return Ok( await _weatherApiModule.GetWeatherForecastAsync(Vm));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

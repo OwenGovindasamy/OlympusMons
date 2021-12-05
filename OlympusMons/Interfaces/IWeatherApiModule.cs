@@ -1,10 +1,11 @@
 ﻿using OlympusMons.Models;
+using OlympusMons.ViewModels;
 
 namespace OlympusMons.Interfaces
 {
     public interface IWeatherApiModule
     {
-        Task<WeatherReport> GetWeatherForecastAsync(string City, string CountryCode);
+        Task<WeatherReport> GetWeatherForecastAsync(WeatherQueryPropsVM Vm);
         string CleanJson(string text);
     }
 }

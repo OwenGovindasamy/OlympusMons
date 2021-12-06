@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympusMons", "OlympusMons\OlympusMons.csproj", "{2DD7A98F-355F-4981-AD9B-9548E9AD580B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OlympusMons", "OlympusMons\OlympusMons.csproj", "{2DD7A98F-355F-4981-AD9B-9548E9AD580B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OlympusMonsTests", "OlympusMonsTests\OlympusMonsTests.csproj", "{105907F1-0735-4669-AD82-1F48F1682705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2DD7A98F-355F-4981-AD9B-9548E9AD580B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DD7A98F-355F-4981-AD9B-9548E9AD580B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DD7A98F-355F-4981-AD9B-9548E9AD580B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{105907F1-0735-4669-AD82-1F48F1682705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{105907F1-0735-4669-AD82-1F48F1682705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{105907F1-0735-4669-AD82-1F48F1682705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{105907F1-0735-4669-AD82-1F48F1682705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

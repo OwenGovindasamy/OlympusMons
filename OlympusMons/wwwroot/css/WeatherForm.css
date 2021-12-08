@@ -46,12 +46,16 @@
     border-bottom: 1px solid #fff;
 }
 
-.form-white .form-control:focus {
-    color: #fff;
+.form-control {
+    background-color: #f9fafb00!important;
 }
 
+    .form-control:focus {
+        box-shadow: 3px -2px 13px 0rem rgb(0 0 0 / 25%)!important;
+    }
+
 .form-white .form-control {
-    color: #fff;
+    /*color: #fff;*/
 }
 
 .form-white textarea.md-textarea:focus:not([readonly]) {

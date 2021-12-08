@@ -1,6 +1,5 @@
 ﻿<link rel="stylesheet" href="~/css/WeatherForm.css" asp-append-version="true" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" asp-append-version="true" />
-
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
 <main>
     <div class="container mt-4">
         <div class="row">
@@ -10,17 +9,17 @@
                         <form id="WeatherForm">
                             <h3 class="text-center indigo-text font-bold py-4"><strong>Where do you live?</strong></h3>
                             <div class="md-form">
-                                <i class="fa fa-user prefix white-text"></i>
-                                <input type="text" id="form35" class="form-control">
+                                @*<i class="fa fa-user prefix white-text"></i>*@
+                                <input type="text" id="form35" name="form35" class="form-control">
                                 <label for="form35">Your name</label>
                             </div>
                             <div class="md-form">
-                                <i class="fa fa-envelope prefix white-text"></i>
-                                <input type="text" id="form25" class="form-control">
+                                @*<i class="fa fa-envelope prefix white-text"></i>*@
+                                <input type="email" id="form25" name="form25" class="form-control">
                                 <label for="form25">Your email</label>
                             </div>
                             <div class="text-center py-4">
-                                <button class="btn btn-indigo submit">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+                                <button class="btn-lg submit">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
                             </div>
                         </form>
                     </div>
@@ -41,15 +40,34 @@
         {
             e.preventDefault();
             var $form = $('#WeatherForm');
-            
+
             $form.validate();
 
             if ($form.valid())
             {
-                console.log($form,'valid');
+                try{
+                    $.ajax({
+                        type: "GET",
+                        cache: false,
+                        url: "/home/GetWeatherReport",
+                        data: $form.serialize(),
+                        success: function (data) {
+                            console.log('success',data)
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            console.log('error: function',data)
+                        }
+                    })
+                }
+                catch(err)
+                {
+                    console.log('err',err)
+                }
             }
-            
-            console.log('form invalid');
+            else{
+                console.log('form invalid',$form);
+            }
+
         });
     });
 </script>

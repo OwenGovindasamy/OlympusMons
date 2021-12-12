@@ -25,7 +25,7 @@ namespace OlympusMons.Controllers
         }
         #endregion Dependency Injection
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(WeatherReport? model)
         {
             return View(await _weatherApiModule.GetWeatherForecastAsync(_helpers.PopulateWeatherPropsVM_SampleData()));
         }
@@ -49,7 +49,7 @@ namespace OlympusMons.Controllers
         [HttpGet]
         public async Task<IActionResult> GetWeatherReport(WeatherQueryPropsVM Vm)
         {
-            return Ok( await _weatherApiModule.GetWeatherForecastAsync(Vm));
+            return Ok(await _weatherApiModule.GetWeatherForecastAsync(Vm));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

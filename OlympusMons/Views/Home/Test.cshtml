@@ -1,6 +1,14 @@
 ﻿<link rel="stylesheet" href="~/css/WeatherForm.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
 <main>
+    <div class="responseContainer card container position-fixed text-info" style="display:none;">
+        <pre>
+        <code id="response">
+
+        </code>
+    </pre>
+    </div>
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-6 offset-4">
@@ -10,13 +18,13 @@
                             <h3 class="text-center indigo-text font-bold py-4"><strong>Where do you live?</strong></h3>
                             <div class="md-form">
                                 @*<i class="fa fa-user prefix white-text"></i>*@
-                                <input type="text" id="form35" name="form35" class="form-control">
-                                <label for="form35">Your name</label>
+                                <input type="text" id="City" value="Durban" name="City" class="form-control">
+                                <label for="form35">City</label>
                             </div>
                             <div class="md-form">
                                 @*<i class="fa fa-envelope prefix white-text"></i>*@
-                                <input type="email" id="form25" name="form25" class="form-control">
-                                <label for="form25">Your email</label>
+                                <input type="text" id="CountryCode" value="ZA" name="CountryCode" class="form-control">
+                                <label for="CountryCode">Country code</label>
                             </div>
                             <div class="text-center py-4">
                                 <button class="btn-lg submit">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
@@ -27,6 +35,7 @@
             </div>
         </div>
     </div>
+   
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
@@ -40,34 +49,33 @@
         {
             e.preventDefault();
             var $form = $('#WeatherForm');
-
             $form.validate();
-
             if ($form.valid())
             {
                 try{
+
                     $.ajax({
                         type: "GET",
                         cache: false,
                         url: "/home/GetWeatherReport",
                         data: $form.serialize(),
                         success: function (data) {
-                            console.log('success',data)
+                            $('#response').text(JSON.stringify(data, null, '  '));
+                            $('.responseContainer').fadeIn();
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown) {
-                            console.log('error: function',data)
+                            throw errorThrown;
                         }
                     })
                 }
                 catch(err)
                 {
-                    console.log('err',err)
+                    console.log('err',err);
                 }
             }
             else{
-                console.log('form invalid',$form);
+                alert('form invalid');
             }
-
         });
     });
 </script>

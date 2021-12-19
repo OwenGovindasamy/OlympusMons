@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace OlympusMonsTests
 {
-    internal class WeatherQueryPropsVMProcessor
+    public class WeatherQueryPropsVMProcessor
     {
         private readonly IWeatherApiModule _weatherApiModule;
+
         public WeatherQueryPropsVMProcessor(IWeatherApiModule weatherApiModule)
         {
             _weatherApiModule = weatherApiModule;

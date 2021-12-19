@@ -1,12 +1,20 @@
 using OlympusMons.ViewModels;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace OlympusMonsTests
 {
     public class ApiUnitTests
     {
+        private readonly WeatherQueryPropsVMProcessor _processor;
+
+        public ApiUnitTests(WeatherQueryPropsVMProcessor processor)
+        {
+            _processor = processor;
+        }
+
         [Fact]
-        public void WeatherQueryPropsVM_Test()
+        public async Task WeatherQueryPropsVM_Test()
         {
             //Arrange
             var request = new WeatherQueryPropsVM
@@ -22,21 +30,15 @@ namespace OlympusMonsTests
                 Mode = "xml"
             };
 
-            var processor = new WeatherQueryPropsVMProcessor();
-
             //Act
-            var result = processor.WeatherQuery(request);
+            var result = await _processor.WeatherQuery(request);
 
             //Assert
             Assert.NotNull(result);
-            Assert.Equal(request.City, result.Result.main.);
-            Assert.Equal(request.CountryCode, result.CountryCode);
-            Assert.Equal(request.Latitude, result.Latitude);
-            Assert.Equal(request.Longitude, result.Longitude);
-            Assert.Equal(request.Callback, result.Callback);
-            Assert.Equal(request.Language, result.Language);
-            Assert.Equal(request.Units, result.Units);
-            Assert.Equal(request.Mode, result.Mode);
+            Assert.Equal(request.City, result?.name);
+            Assert.Equal(request.CountryCode, result?.sys?.country);
+            Assert.Equal(request.Latitude, result?.coord?.lat.ToString());
+            Assert.Equal(request.Longitude, result?.coord?.lon.ToString());
         }
     }
 }

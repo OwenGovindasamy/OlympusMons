@@ -8,13 +8,13 @@
   <div class="bg"></div>
   <div class="overlay"></div>
   <div class="panel panel-time">
-    <div class="span time">@Model?.timezone</div>
-    <div class="span date">@Model?.dt</div>
+    <div class="span time">@Model?.Timezone</div>
+    <div class="span date">@Model?.Date</div>
   </div>
   <div class="panel panel-weather">
-    <div class="location">@Model?.name @Model?.sys?.country</div>
-    <div class="span temp">@Model?.main?.temp<span class="degree">&deg;C</span></div>
-    <div class="span text">@Model?.weather?[0].description</div>
+    <div class="location">@Model?.Name @Model?.System?.country</div>
+    <div class="span temp">@Model?.Main?.temp<span class="degree">&deg;C</span></div>
+    <div class="span text">@Model?.Weather?[0].Description</div>
   </div>
   <div class="panel panel-calendar">
     <ul>

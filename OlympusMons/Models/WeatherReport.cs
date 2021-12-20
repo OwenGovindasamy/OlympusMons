@@ -1,22 +1,27 @@
 ﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace OlympusMons.Models
 {
     
-    public class Coord
+    public class Coordinates
     {
-        public double lon { get; set; }
-        public double lat { get; set; }
+        [JsonPropertyName("lon")]
+        public double Longitude { get; set; }
+        [JsonPropertyName("lat")]
+        public double Latitude { get; set; }
     }
-
     public class Weather
     {
-        public int id { get; set; }
-        public string? main { get; set; }
-        public string? description { get; set; }
-        public string? icon { get; set; }
+        [JsonPropertyName("id")]
+        public int Id { get; set; }
+        [JsonPropertyName("main")]
+        public string? Main { get; set; }
+        [JsonPropertyName("description")]
+        public string? Description { get; set; }
+        [JsonPropertyName("icon")]
+        public string? Icon { get; set; }
     }
-
     public class Main
     {
         public double temp { get; set; }
@@ -28,20 +33,17 @@ namespace OlympusMons.Models
         public int sealevel { get; set; }
         public int grnd_level { get; set; }
     }
-
     public class Wind
     {
         public double speed { get; set; }
         public int deg { get; set; }
         public double gust { get; set; }
     }
-
     public class Clouds
     {
         public int all { get; set; }
     }
-
-    public class Sys
+    public class System
     {
         public int type { get; set; }
         public int id { get; set; }
@@ -53,43 +55,43 @@ namespace OlympusMons.Models
     public class WeatherReport
     {
         [JsonProperty("coord")]
-        public Coord? coord { get; set; }
+        public Coordinates? Coordinates { get; set; }
 
         [JsonProperty("weather")]
-        public List<Weather>? weather { get; set; }
+        public List<Weather>? Weather { get; set; }
 
         [JsonProperty("base")]
-        public string? dbase { get; set; }
+        public string? Base { get; set; }
 
         [JsonProperty("main")]
-        public Main? main { get; set; }
+        public Main? Main { get; set; }
 
         [JsonProperty("visibility")]
-        public int visibility { get; set; }
+        public int Visibility { get; set; }
 
         [JsonProperty("wind")]
-        public Wind? wind { get; set; }
+        public Wind? Wind { get; set; }
 
         [JsonProperty("clouds")]
-        public Clouds? clouds { get; set; }
+        public Clouds? Clouds { get; set; }
 
         [JsonProperty("dt")]
-        public int dt { get; set; }
+        public int Date { get; set; }
 
         [JsonProperty("sys")]
-        public Sys? sys { get; set; }
+        public System? System { get; set; }
 
         [JsonProperty("timezone")]
-        public int timezone { get; set; }
+        public int Timezone { get; set; }
 
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [JsonProperty("name")]
-        public string? name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("cod")]
-        public int cod { get; set; }
+        public int Cod { get; set; }
     }
 
 }
